@@ -17,7 +17,7 @@ public class TestBail {
     }
 
     public static void main(String[] args) throws Exception {
-        ANTLRInputStream input = new ANTLRInputStream(System.in);
+        CharStream input = CharStreams.fromStream(System.in);
         BailSimpleLexer lexer = new BailSimpleLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SimpleParser parser = new SimpleParser(tokens);

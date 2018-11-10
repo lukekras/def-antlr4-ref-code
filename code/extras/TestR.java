@@ -19,7 +19,7 @@ public class TestR {
 		if ( inputFile!=null ) {
 			is = new FileInputStream(inputFile);
 		}
-		ANTLRInputStream input = new ANTLRInputStream(is);
+		CharStream input = CharStreams.fromStream(is);
 		RLexer lexer = new RLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 //		tokens.fill();
@@ -28,7 +28,7 @@ public class TestR {
 //		}
 		RFilter filter = new RFilter(tokens);
 		filter.stream(); // call start rule: stream
-		tokens.reset();
+		tokens.seek(0);
 //		for (Object tok : tokens.getTokens()) {
 //			System.out.println(tok);
 //		}

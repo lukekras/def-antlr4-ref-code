@@ -30,6 +30,13 @@ public class EvalVisitor extends LabeledExprBaseVisitor<Integer> {
         return 0;                          // return dummy value
     }
 
+    /** clear NEWLINE */
+    @Override
+    public Integer visitClear(LabeledExprParser.ClearContext ctx) {
+        memory.clear();                    // clear the memory map
+        return 0;                          // return dummy value
+    }
+
     /** INT */
     @Override
     public Integer visitInt(LabeledExprParser.IntContext ctx) {

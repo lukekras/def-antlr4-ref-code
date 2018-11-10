@@ -116,7 +116,7 @@ public class CallGraph {
         if ( inputFile!=null ) {
             is = new FileInputStream(inputFile);
         }
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         CymbolLexer lexer = new CymbolLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         CymbolParser parser = new CymbolParser(tokens);

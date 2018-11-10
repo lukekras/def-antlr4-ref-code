@@ -52,7 +52,7 @@ public class TestLEvaluatorWithProps {
         if ( inputFile!=null ) {
             is = new FileInputStream(inputFile);
         }
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         LExprLexer lexer = new LExprLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         LExprParser parser = new LExprParser(tokens);

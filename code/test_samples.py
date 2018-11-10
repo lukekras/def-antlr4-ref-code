@@ -15,7 +15,7 @@ outputs = glob.glob('*-output')
 
 for g in grammars:
 	print "processing", g
-	os.system("java -Xmx500M -cp .:/usr/local/lib/antlr4-complete.jar:$CLASSPATH org.antlr.v4.Tool "+g)
+	os.system("java -Xmx500M -cp .:/usr/local/lib/antlr-4.7.2-complete.jar:$CLASSPATH org.antlr.v4.Tool "+g)
 for rig in rigs:
 	match = re.search("Test([A-Za-z]+)(_[A-Za-z0-9]+)?\.java", rig)
 	g = match.group(1)
@@ -28,7 +28,7 @@ for rig in rigs:
 	if not os.path.exists(input):
 		continue
 	print "# TEST",testName
-	cmd = "java -cp .:/usr/local/lib/antlr4-complete.jar:$CLASSPATH Test"+testName+\
+	cmd = "java -cp .:/usr/local/lib/antlr-4.7.2-complete.jar:$CLASSPATH Test"+testName+\
 		  ' < '+input+\
 		  ' &> /tmp/stdout'
 #	print cmd
@@ -48,4 +48,4 @@ for rig in rigs:
 			print '< '+l
 		print '---------'
 #for input in inputs:
-#	os.system("java -cp /usr/local/lib/antlr4-complete.jar:$CLASSPATH Test"+g+input)
+#	os.system("java -cp /usr/local/lib/antlr-4.7.2-complete.jar:$CLASSPATH Test"+g+input)

@@ -6,10 +6,10 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
 ***/
-import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.antlr.v4.runtime.CharStreams;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -66,7 +66,7 @@ public class LoadCSV {
         if ( args.length>0 ) inputFile = args[0];
         InputStream is = System.in;
         if ( inputFile!=null ) is = new FileInputStream(inputFile);
-        CSVLexer lexer = new CSVLexer(new ANTLRInputStream(is));
+        CSVLexer lexer = new CSVLexer(CharStreams.fromStream(is));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         CSVParser parser = new CSVParser(tokens);
         parser.setBuildParseTree(true); // tell ANTLR to build a parse tree

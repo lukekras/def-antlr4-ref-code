@@ -48,7 +48,7 @@ public class TestEvalVisitor {
         if ( inputFile!=null ) {
             is = new FileInputStream(inputFile);
         }
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         ExprLexer lexer = new ExprLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         ExprParser parser = new ExprParser(tokens);

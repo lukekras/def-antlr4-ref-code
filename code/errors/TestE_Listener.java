@@ -7,7 +7,7 @@
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
 ***/
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.Nullable;
+//import org.antlr.v4.runtime.misc.Nullable;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ public static class VerboseListener extends BaseErrorListener {
 
 }
     public static void main(String[] args) throws Exception {
-        ANTLRInputStream input = new ANTLRInputStream(System.in);
+        CharStream input = CharStreams.fromStream(System.in);
         SimpleLexer lexer = new SimpleLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SimpleParser parser = new SimpleParser(tokens);

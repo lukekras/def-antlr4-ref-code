@@ -3,11 +3,6 @@
  */
 grammar Cymbol;
 
-@lexer::members {
-    public static final int WHITESPACE = 1;
-    public static final int COMMENTS = 2;
-}
-
 file:   (functionDecl | varDecl)+ ;
 
 varDecl
@@ -56,8 +51,8 @@ LETTER : [a-zA-Z] ;
 
 INT :   [0-9]+ ;
 
-WS  :   [ \t\n\r]+ -> channel(WHITESPACE) ;  // channel(1)
+WS  :   [ \t\n\r]+ -> channel(1) ;
 
 SL_COMMENT
-    :   '//' .*? '\n' -> channel(COMMENTS)   // channel(2)
+    :   '//' .*? '\n' -> channel(2)
     ;

@@ -1,5 +1,5 @@
 grammar ELang;
-stat : (expr ';')+ ;
+stat : (expr ';')+ EOF ;
 expr : ID ;
 WS   : [ \r\t\n]+ -> skip ;
 ID   : [a-z]+ ;

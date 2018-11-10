@@ -18,7 +18,7 @@ public class Calc {
         if ( args.length>0 ) inputFile = args[0];
         InputStream is = System.in;
         if ( inputFile!=null ) is = new FileInputStream(inputFile);
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         LabeledExprLexer lexer = new LabeledExprLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         LabeledExprParser parser = new LabeledExprParser(tokens);

@@ -6,17 +6,18 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
 ***/
-import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 
 public class Col {
     public static void main(String[] args) throws Exception {
-        ANTLRInputStream input = new ANTLRInputStream(System.in);
+        CharStream input = CharStreams.fromStream(System.in);
         RowsLexer lexer = new RowsLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         int col = Integer.valueOf(args[0]);

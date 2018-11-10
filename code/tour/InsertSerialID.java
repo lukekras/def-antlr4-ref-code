@@ -6,11 +6,12 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
 ***/
-import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -23,7 +24,7 @@ public class InsertSerialID {
         if ( inputFile!=null ) {
             is = new FileInputStream(inputFile);
         }
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
 
         JavaLexer lexer = new JavaLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);

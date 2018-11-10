@@ -10,14 +10,14 @@ import org.antlr.v4.runtime.*;
 
 public class TestR {
 	public static void main(String[] args) throws Exception {
-		ANTLRInputStream input = new ANTLRFileStream(args[0]);
+		CharStream input = CharStreams.fromFileName(args[0]);
 		RLexer lexer = new RLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		RParser parser = new RParser(tokens);
 		parser.setBuildParseTree(true);
 		RuleContext tree = parser.prog();
-		tree.inspect(parser); // show in gui
-		//tree.save(parser, "/tmp/R.ps"); // Generate postscript
+		//tree.inspect(parser); // show in gui (deprecated before antlr 4.7.2?)
+		//tree.save(parser, "/tmp/R.ps"); // Generate postscript (deprecated before antlr 4.7.2?)
 		System.out.println(tree.toStringTree(parser));
 	}
 }

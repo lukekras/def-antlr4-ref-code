@@ -33,7 +33,7 @@ public class TestPropertyFileVisitor {
         if ( inputFile!=null ) {
             is = new FileInputStream(inputFile);
         }
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         PropertyFileLexer lexer = new PropertyFileLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         PropertyFileParser parser = new PropertyFileParser(tokens);

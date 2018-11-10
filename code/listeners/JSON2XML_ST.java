@@ -127,7 +127,7 @@ public class JSON2XML_ST {
         if ( inputFile!=null ) {
             is = new FileInputStream(inputFile);
         }
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         JSONLexer lexer = new JSONLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JSONParser parser = new JSONParser(tokens);

@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
 ***/
-import com.sun.istack.internal.Nullable;
+//import com.sun.istack.internal.Nullable;
 import org.antlr.v4.runtime.*;
 
 import java.util.*;
@@ -43,7 +43,7 @@ public static class UnderlineListener extends BaseErrorListener {
     }
 }
     public static void main(String[] args) throws Exception {
-        ANTLRInputStream input = new ANTLRInputStream(System.in);
+        CharStream input = CharStreams.fromStream(System.in);
         SimpleLexer lexer = new SimpleLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
 		SimpleParser parser = new SimpleParser(tokens);

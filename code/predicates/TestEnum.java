@@ -26,7 +26,7 @@ public class TestEnum {
 		if ( inputFile!=null ) {
 			is = new FileInputStream(inputFile);
 		}
-		ANTLRInputStream input = new ANTLRInputStream(is);
+		CharStream input = CharStreams.fromStream(is);
 		EnumLexer lexer = new EnumLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		EnumParser parser = new EnumParser(tokens);

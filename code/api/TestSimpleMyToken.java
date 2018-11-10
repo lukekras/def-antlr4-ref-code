@@ -6,8 +6,8 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
 ***/
-import org.antlr.v4.runtime.ANTLRFileStream;
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class TestSimpleMyToken {
 	public static void main(String[] args) throws IOException {
-		ANTLRInputStream input = new ANTLRFileStream(args[0]);
+		CharStream input = CharStreams.fromFileName(args[0]);
 		SimpleLexer lexer = new SimpleLexer(input);
 		MyTokenFactory factory = new MyTokenFactory(input);
 		lexer.setTokenFactory(factory);

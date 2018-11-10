@@ -12,7 +12,7 @@ import org.antlr.v4.runtime.tree.*;
 public class Test {
     public static void main(String[] args) throws Exception {
         // create a CharStream that reads from standard input
-        ANTLRInputStream input = new ANTLRInputStream(System.in);
+        CharStream input = CharStreams.fromStream(System.in);
 
         // create a lexer that feeds off of input CharStream
         HelloLexer lexer = new HelloLexer(input);

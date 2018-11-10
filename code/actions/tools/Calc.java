@@ -8,8 +8,7 @@
 ***/
 package tools;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.*;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -34,7 +33,7 @@ public class Calc {
 
         while ( expr!=null ) {             // while we have more expressions
             // create new lexer and token stream for each line (expression)
-            ANTLRInputStream input = new ANTLRInputStream(expr+"\n");
+            CharStream input = CharStreams.fromString(expr+"\n");
             ExprLexer lexer = new ExprLexer(input);
             lexer.setLine(line);           // notify lexer of input position
             lexer.setCharPositionInLine(0);
